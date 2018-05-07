@@ -18,6 +18,3 @@ router.get('/orders', (req, res, next)=>{
 });
 
 module.exports = router;
-
-
-

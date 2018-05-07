@@ -29,7 +29,11 @@ res.render('auth/login', {error: req.body.error});
 router.post('/login',
  passport.authenticate('local'),
 (req, res)=>{
-  res.redirect('/navbar');
+  console.log(...req.body);
+  if (req.body.role === 'CLIENT') {
+   return res.redirect('/navbar');
+  } 
+ return res.redirect('/profile');
 });
 
 
@@ -38,6 +42,7 @@ router.get('/newuser', (req, res, next) => {
 });
 
 router.post('/newuser', (req, res)=>{
+  console.log(req.body);
         User.register(req.body, req.body.password, function(err, user) {
             if (err) return res.send(err);
             const authenticate = User.authenticate();
