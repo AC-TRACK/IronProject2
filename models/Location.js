@@ -1,16 +1,22 @@
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-locationSchema = new Schema({
-    locName: String,
-    coord: {
-      lat: String, 
-      lgn: String
-    },
-    locType: String, 
-},{
+const locationSchema = new Schema({
+  locName: String,
+  address: String,
+  cName: String,
+  cEmail: String,
+  cTelephone: String,
+  locType: {
+    type: String,
+    enum: ['Wholesaler Facilities', 'Pharmacy', '3PL', 'Own Facilities', 'Government Facilities', 'Other'], 
+  }, 
+  description: String,
+}, {
   timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+    createdAt: 'created_At',
+    updatedAt: 'updatedAt',
+  },
 });
+
+module.exports = mongoose.model('Location', locationSchema);

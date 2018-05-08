@@ -37,18 +37,32 @@ router.post('/login',
 });
 
 
-router.get('/newuser', (req, res, next) => {
-  res.render('auth/newuser', {error: req.body.error});
-});
+router.get('/users', async (req, res, next) => {
 
-router.post('/newuser', (req, res)=>{
+  const users = await User.find();
+
+  res.render('admin/users', {users});
+  
+});
+  /*User.find((error, users)=>{
+    if (error) {
+      next(error);
+    } else {
+      console.log(users);
+      res.render('users', {users});
+    }
+  });*/
+  //res.render('admin/users', {error: req.body.error});
+
+
+router.post('/users', (req, res)=>{
   console.log(req.body);
         User.register(req.body, req.body.password, function(err, user) {
             if (err) return res.send(err);
             const authenticate = User.authenticate();
             authenticate(req.body.email, req.body.password, function(err, result) {
                 if (err) return res.send(err);
-                return res.redirect('/login');
+                return res.redirect('/users');
          });
       });
    });

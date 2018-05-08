@@ -1,0 +1,91 @@
+<div class="uk-overflow-auto">
+<table class="uk-table uk-table-hover uk-table-divider uk-table-small">
+    <thead>
+      <div class="uk-overflow-auto">
+        <tr>
+            <th class="uk-table-expand">Location Name</th>
+            <th class="uk-table-expand">Contact Information</th>
+            <th class="uk-table-expand">Adress</th>
+            <th class="uk-width-medium">Type of Location</th>
+            <th class="uk-width-medium">Comments</th>
+        </tr>
+        </div>
+</thead>
+
+    {{#each locations as |location| }}
+    <tbody>
+        <tr>
+            <td>{{locName}}</td>
+            <td>{{cName}}<br>{{cTelephone}}<br>{{cEmail}}</td>
+            <td>{{address}}</td>
+            <td>{{locType}}</td>
+            <td>{{description}}</td>
+            <td><button uk-icon="icon: pencil"></button><button uk-icon="icon: trash"></button></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   {{!-- <fieldset class="uk-fieldset">
+        <legend class="uk-legend">Add a New Location</legend>
+<form action="/location" method="POST">
+        <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text" name="locName">Location Name</label>
+           <div class="uk-form-controls">
+           <input class="uk-input" id="form-stacked-text" type="text" placeholder="Location's name of your preference">
+           </div>
+       </div>
+
+        <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text" name="address">Address</label>
+           <div class="uk-form-controls">
+           <input class="uk-input" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
+           </div>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Contact Information</label>
+           <div class="uk-form-controls">
+           <input class="uk-input" id="form-stacked-text" type="text" name="cName" placeholder="Contact's Name">
+           <input class="uk-input" id="form-stacked-text" type="email" name="cEmail" placeholder="Contact's Email">
+           <input class="uk-input" id="form-stacked-text" type="text" name="cTelephone" placeholder="Contact's Telephone">
+           </div>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Type of Location</label>
+           <select class="uk-select" name="locType">
+               <option>Select...</option>
+               <option>Wholesaler Facilities</option>
+               <option>Pharmacy</option>
+               <option>3PL</option>
+               <option>Own Facilities</option>
+               <option>Government Facilities</option>
+               <option>Other</option>
+
+           </select>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">
+           Description & Relevant information:  
+           
+       </label>
+           <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like attention hours,"></textarea>
+       </div>
+       <hr>
+       <div class="form-actions">
+           <a href="/location" class="btn btn-link">Cancel and go back</a>
+           <input type="submit" value="Save" class="btn btn-primary">
+       </div>
+        </form>
+   </fieldset> --}}

@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	background: #fff;
 
-	color: #fff;
+	
 	font-family: Arial;
 	font-size: 12px;
 }
@@ -145,11 +145,32 @@ a {
 .menu-container{
 	display:flex;
 	flex-wrap: wrap;
-	align-content: 
+	justify-content: center;
+	align-content: space-between;
 }
 .menu {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 50px;
+	justify-content: center;
+	width: 70px;
+	margin-left: 50px;
+	margin-right: 60px;
+	margin-top: 100px;
 }
+.profile-links-container{
+	margin-top: 100px;
+	position: absolute;
+}
+.home-icon{
+	display: flex;
+	justify-content: flex-end;
+}
+// .edit-icon, .delete-icon{
+// 	border: 1px solid rgba(128, 128, 128, 0.89);
+// 	border-radius: 2px;
+// 	background-color: rgba(185, 180, 180, 0.205);
+// 	width: 22px;
+// 	margin:0;
+// 	padding: 0;
+// }
  

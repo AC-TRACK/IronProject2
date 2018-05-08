@@ -1,7 +1,8 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
-
-orderSchema = new Schema({
+const orderSchema = new Schema({
     status: {
       type: String,
       enum: ['InProcess','Pending', 'InTransit', 'PickUpAwait']
@@ -10,5 +11,5 @@ orderSchema = new Schema({
       type:String,
       enum:['newRequirement','shipment','pickUp'],
     }
-    originLocation: ,
+
 });
