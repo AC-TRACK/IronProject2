@@ -22,7 +22,7 @@ router.post('/location', (req, res, next)=>{
 });
 //  shippers route (GET & POST)
 router.get('/shippers', (req, res, next)=>{
-res.send('shippers worked');
+res.render('admin/shippers');
 });
 
 router.post('/shippers', (req, res, next)=>{
@@ -35,7 +35,16 @@ router.post('/shippers', (req, res, next)=>{
 });
 //  orders route (GET & POST)
 router.get('/orders', (req, res, next)=>{
-  res.send('orders worked');
+res.render('admin/orders')
+});
+
+router.post('/orders', (req, res, next)=>{
+  Order.create(req.body)
+  .then((order)=>{
+    console.log(order);
+    res.render('admin/orders');
+  })
+ .catch((e)=>next(e));
 });
 
 module.exports = router;
