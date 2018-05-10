@@ -29,6 +29,60 @@
 </table>
 </div>
 
+<hr>
+<br>
+
+{{!-- Button to deploy modal --}}
+<a class="uk-button uk-button-primary" href="#modal-overflow" uk-toggle>New User</a>
+
+{{!-- Formulary modal to add new user --}}
+<div id="modal-overflow" uk-modal>
+   <div class="uk-modal-dialog">
+       <button class="uk-modal-close-default" type="button" uk-close></button>
+       <div class="uk-modal-header">
+           <h2 class="uk-modal-title">Add User Details</h2>
+       </div>
+       <div class="uk-modal-body" uk-overflow-auto>
+           <form action="/users" method="post">
+               <legend class="uk-legend">Create a new User</legend>
+               <div class="uk-margin">
+                   <label class="uk-form-label"><strong>Full Name</strong></label>
+                   <input class="uk-input" name="name" type="text" placeholder="First Name">
+                   <input class="uk-input" name="lastName" type="text" placeholder="Last Name">
+               </div>
+               <div class="uk-margin">
+                   <label class="uk-form-label"><strong>Address</strong></label>
+                   <input class="uk-input" type="text" name="address" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
+               </div>
+               <div class="uk-margin">
+                   <label class="uk-form-label"><strong>E-mail</strong></label>
+                   <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail">
+               </div>
+               <br>
+               <div class="uk-margin">
+                   <label class="uk-form-label"><strong>Set Password</strong></label>
+                   <input class="uk-input" name="password" type="password" placeholder="Type New Password">
+                   <input class="uk-input" name="password1" type="password" placeholder="Confirm Password">
+               </div>
+               <br>
+               <div class="uk-margin">
+                   <label class="uk-form-label"><strong>Role</strong></label>
+                   <select class="uk-select" name="role">
+                       <option>Select...</option>
+                       <option>ADMIN</option>
+                       <option>CLIENT</option>
+                       <option>OPS</option>
+                   </select>
+               </div>
+               <div class="uk-modal-footer uk-text-right">
+                   <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                   <input type="submit" value="Save" class="uk-button uk-button-primary">
+               </div>
+           </form>
+       </div>
+   </div>
+</div> 
+{{!-- END of formulary modal --}}
 
 
 
@@ -37,9 +91,7 @@
 
 
 
-
-
-<div class="uk-position-large uk-position-center">
+{{!-- <div class="uk-position-large uk-position-center">
 <h1 style="color:blue" class="uk-heading-bullet">Users</h1>
    <fieldset class="uk-fieldset">
 <form action="/users" method="post">
@@ -86,5 +138,4 @@
 
    </fieldset>
 </form>
-</div> 
-{{!--  --}}
+</div>  --}}

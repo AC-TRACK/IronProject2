@@ -1,0 +1,54 @@
+<fieldset class="uk-fieldset">
+        <legend class="uk-legend">Update Location</legend>
+<form action="/location/{{location._id}}/update" method="POST">
+        <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Location Name</label>
+           <div class="uk-form-controls">
+           <input class="uk-input"  name="locName" id="form-stacked-text" type="text" placeholder="Location's name of your preference" value="{{location.locName}}">
+           </div>
+       </div>
+
+        <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Address</label>
+           <div class="uk-form-controls">
+           <input class="uk-input"  name="address" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code" value="{{location.address}}">
+           </div>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Contact Information</label>
+           <div class="uk-form-controls">
+           <input class="uk-input" id="form-stacked-text" type="text" name="cName" placeholder="Contact's Name" value="{{location.cName}}">
+           <input class="uk-input" id="form-stacked-text" type="email" name="cEmail" placeholder="Contact's Email" value="{{location.cEmail}}">
+           <input class="uk-input" id="form-stacked-text" type="text" name="cTelephone" placeholder="Contact's Telephone" value="{{location.cTelephone}}">
+           </div>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">Type of Location</label>
+           <select class="uk-select" name="locType">
+               <option>Select...</option>
+               <option>Wholesaler Facilities</option>
+               <option>Pharmacy</option>
+               <option>3PL</option>
+               <option>Own Facilities</option>
+               <option>Government Facilities</option>
+               <option>Other</option>
+
+           </select>
+       </div>
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">
+           Description & Relevant information:  
+           
+       </label>
+           <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like attention hours,"></textarea>
+       </div>
+       <hr>
+       <div class="form-actions">
+           <a href="/location" class="btn btn-link">Cancel and go back</a>
+           <input type="submit" value="Save" class="btn btn-primary">
+       </div>
+        </form>
+   </fieldset>

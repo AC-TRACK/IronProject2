@@ -1,0 +1,107 @@
+<div class="uk-position-large uk-position-center n"  id="order-form" >
+<fieldset class="uk-fieldset" style="height:100vh" >
+        <legend class="uk-legend">Update Order</legend>
+        <hr>
+        <br>
+
+<form action="/orders/{{order._id}}/update" method="post">
+        <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text" name="locName" value="{{order.locName}}"><strong>Type of Order</strong></label>
+           <div class="uk-form-controls">
+           <select class="uk-select" name="typeOfOrder" value="{{order.typeOfOrder}}">
+               <option>Select Type of Order...</option>
+               <option>New Requirement</option>
+               <option>Shipment To:</option>
+               <option>Pick Up</option>
+           </select>
+           </div>
+       </div>
+
+
+
+
+<div id="orderRow" class="uk-grid-small" uk-grid>
+        <div id="order-child" class="uk-width-1-2@s">
+            <label class="uk-form-label" for="form-stacked-text"><strong>What Shipper(s) do you need?</strong> </label>
+            <select class="uk-select" name="typeOfShipper" value="{{order.typeOfShipper}}">
+                <option>Select Your Shipper...</option> 
+                <option>Eco 5L RFG </option>
+                <option>Eco 5L CRT</option>
+                <option>Eco 12L RFG</option>
+                <option>Eco 12L CRT</option>
+                <option>Eco 26L RFG</option>
+                <option>Eco 26L CRT</option>
+            </select>
+        </div> 
+        <div class="uk-width-1-2@s">
+                <label class="uk-form-label" for="form-stacked-text"><strong>QTTY</strong></label>
+                <input class="uk-input" type="number" min="1" max="10" name="shippersQtty" value="{{order.shippersQtty}}">
+        </div>  
+        
+</div>
+<br>
+<div id="clonedRow2"></div>
+<br>
+<div id="clonedRow3"></div>
+<br>
+<div id="clonedRow4"></div>
+<br>
+<div id="clonedRow5"></div>
+<br>
+<div id="clonedRow6"></div>
+<br>
+
+
+<div style="display: flex; justify-content:flex-end">
+    <label class="uk-form-label" for="form-stacked-text">Add Row</label>
+    <button id="addRow" class="uk-button uk-button-default" type="button">+</button>
+    <button id="deleteRow" class="uk-button uk-button-default" type="button">-</button>
+</div>
+
+
+
+
+
+
+
+<div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Initial Address</strong> <small>(Leave empty if Requirement Order)</small> </label>
+    <div class="uk-form-controls">
+       
+      <select name="initialAddress" class="uk-select" value="{{order.initialAddress}}">
+        {{#each locations as |location|}}
+        <option >{{locName}}</option>
+        {{/each}}
+        {{!-- <input class="uk-input" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code" name="initialAddress"> --}}
+      </select>  
+       
+    </div>
+</div>
+<div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text" name="address" ></label><strong>Destination Address</strong></label>
+    <div class="uk-form-controls">
+       <select name="destAddress" class="uk-select" value="{{order.destAddress}}">
+         {{#each locations as |location|}}
+        <option >{{locName}}</option>
+        {{/each}}
+      </select> 
+    </div>
+</div>
+<br>
+
+
+       <div class="uk-margin">
+       <label class="uk-form-label" for="form-stacked-text">
+           <strong>Description & Relevant information:  </strong>
+           
+       </label>
+           <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like especial instructions" name="description"></textarea>
+       </div>
+       <hr>
+       <div class="form-actions">
+           <a href="/orders" class="btn btn-link">Cancel and go back</a>
+           <input type="submit" value="Save" class="btn btn-primary">
+       </div>
+        </form>
+   </fieldset>
+   </div>

@@ -5,7 +5,8 @@
         <tr>
             <th class="uk-table-expand">Type Of Order</th>
             <th class="uk-width-small">Type of Shipper</th>
-            <th class="uk-table-expand">Quantity</th>
+            <th class="uk-width-small uk-flex-center" >QTTY</th>
+            <th class="uk-table-expand">User asigned</th>
             <th class="uk-width-medium">Initial Address</th>
             <th class="uk-width-medium">Destination Address</th>
             <th  class="uk-table-expand">Description</th>
@@ -17,13 +18,15 @@
     <tbody>
         <tr>
             <td>{{typeOfOrder}}</td>
-            <td>{{typeOfShippers}}</td>
-            <td>{{shippersQtty}}</td>
+            <td>{{typeOfShipper}}</td>
+            <td class="uk-flex-center">{{shippersQtty}}</td>
+            <td>{{user}}</td>
             <td>{{initialAddress}}</td>
             <td>{{destAddress}}</td>
             <td>{{description}}</td>
             <td>
-              <a href="orders/{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
+    
+            <a href="orders/{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"></a>  
             <a href="orders/{{_id}}/delete"><input type="submit" id="delete-user" uk-icon="icon: trash"></a>
             </td>
         </tr>
@@ -34,115 +37,119 @@
 
 
 
-<div class="uk-position-large uk-position-center n"  id="order-form" >
-<fieldset class="uk-fieldset" style="height:100vh" >
-        <legend class="uk-legend">Add a New Order</legend>
-        <hr>
-        <br>
-
-<form action="/orders" method="POST">
-        <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text" name="locName"><strong>Type of Order</strong></label>
-           <div class="uk-form-controls">
-           <select class="uk-select" name="typeOfOrder">
-               <option>Select Type of Order...</option>
-               <option>New Requirement</option>
-               <option>Shipment To:</option>
-               <option>Pick Up</option>
-           </select>
-           </div>
-       </div>
 
 
-
-
-<div id="orderRow" class="uk-grid-small" uk-grid>
-        <div id="order-child" class="uk-width-1-2@s">
-            <label class="uk-form-label" for="form-stacked-text"><strong>What Shipper(s) do you need?</strong> </label>
-            <select class="uk-select" name="typeOfShipper">
-                <option>Select Your Shipper...</option> 
-                <option>Eco 5L RFG </option>
-                <option>Eco 5L CRT</option>
-                <option>Eco 12L RFG</option>
-                <option>Eco 12L CRT</option>
-                <option>Eco 26L RFG</option>
-                <option>Eco 26L CRT</option>
-            </select>
-        </div> 
-        <div class="uk-width-1-2@s">
-                <label class="uk-form-label" for="form-stacked-text"><strong>QTTY</strong></label>
-                <input class="uk-input" type="number" min="1" max="10" name="shippersQtty">
-        </div>  
-        
-</div>
+{{!-- END of Orders table --}}
 <br>
-<div id="clonedRow2"></div>
-<br>
-<div id="clonedRow3"></div>
-<br>
-<div id="clonedRow4"></div>
-<br>
-<div id="clonedRow5"></div>
-<br>
-<div id="clonedRow6"></div>
-<br>
+<hr>
 
+{{!-- Button to deploy modal --}}
+<a class="uk-button uk-button-primary" href="#modal-overflow" uk-toggle>New Order</a>
 
-<div style="display: flex; justify-content:flex-end">
-    <label class="uk-form-label" for="form-stacked-text">Add Row</label>
-    <button id="addRow" class="uk-button uk-button-default" type="button">+</button>
-    <button id="deleteRow" class="uk-button uk-button-default" type="button">-</button>
-</div>
+{{!-- Formulary modal to add new order --}}
+<div id="modal-overflow" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Add Order Details</h2>
+        </div>
+        <div class="uk-modal-body" uk-overflow-auto>
+            <form action="/orders" method="POST">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text" name="locName"><strong>Type of Order</strong></label>
+                    <div class="uk-form-controls">
+                        <select class="uk-select" name="typeOfOrder">
+                            <option>Select Type of Order...</option>
+                            <option>New Requirement</option>
+                            <option>Shipment To:</option>
+                            <option>Pick Up</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="orderRow" class="uk-grid-small" uk-grid>
+                    <div id="order-child" class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text"><strong>What Shipper(s) do you need?</strong> </label>
+                            <select class="uk-select" name="typeOfShipper">
+                                <option>Select Your Shipper...</option> 
+                                <option>Eco 5L RFG </option>
+                                <option>Eco 5L CRT</option>
+                                <option>Eco 12L RFG</option>
+                                <option>Eco 12L CRT</option>
+                                <option>Eco 26L RFG</option>
+                                <option>Eco 26L CRT</option>
+                            </select>
+                    </div> 
+                    <div class="uk-width-1-2@s">
+                        <label class="uk-form-label" for="form-stacked-text"><strong>QTTY</strong></label>
+                        <input class="uk-input" type="number" min="1" max="10" name="shippersQtty">
+                    </div>  
+                </div>
+                <br>
+                <div id="clonedRow2"></div>
+                <br>
+                <div id="clonedRow3"></div>
+                <br>
+                <div id="clonedRow4"></div>
+                <br>
+                <div id="clonedRow5"></div>
+                <br>
+                <div id="clonedRow6"></div>
+                <br>
+                <div style="display: flex; justify-content:flex-end">
+                    <label class="uk-form-label" for="form-stacked-text">Add Row</label>
+                    <button id="addRow" class="uk-button uk-button-default" type="button">+</button>
+                    <button id="deleteRow" class="uk-button uk-button-default" type="button">-</button>
+                </div>
+                <div class="uk-margin">
+                   <label class="uk-form-label" for="form-stacked-text" name="users"><strong>Assigned to user:</strong> <small>(Leave empty if Requirement Order)</small> </label>
+                   <div class="uk-form-controls">
+                       <select name="user" class="uk-select" >
+                             <option>Select User</option>
+                         {{#each users as |user|}}      
+                               <option>{{name}} {{lastName}}</option>
+                           {{/each}}
+                       </select>  
+                   </div>
+               </div>
 
-
-
-
-
-
-
-<div class="uk-margin">
-    <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Initial Address</strong> <small>(Leave empty if Requirement Order)</small> </label>
-    <div class="uk-form-controls">
-       
-      <select name="initialAddress" class="uk-select" >
-        {{#each locations as |location|}}
-        <option >{{locName}}</option>
-        {{/each}}
-        {{!-- <input class="uk-input" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code" name="initialAddress"> --}}
-      </select>  
-       
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Initial Address</strong> <small>(Leave empty if Requirement Order)</small> </label>
+                    <div class="uk-form-controls">
+                        <select name="initialAddress" class="uk-select" >
+                            <option>Select Initial Address</option>
+                            {{#each locations as |location|}}
+                                <option >{{locName}}</option>
+                            {{/each}}
+                        </select>  
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Destination Address</strong></label>
+                    <div class="uk-form-controls">
+                        <select name="destAddress" class="uk-select">
+                             <option>Select Destination Address</option>
+                            {{#each locations as |location|}}
+                                <option >{{locName}}</option>
+                            {{/each}}
+                        </select> 
+                    </div>
+                </div>
+                <br>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">
+                        <strong>Description & Relevant information:  </strong> 
+                    </label>
+                        <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like especial instructions" name="description"></textarea>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                    <input type="submit" value="Save" class="uk-button uk-button-primary">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<div class="uk-margin">
-    <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Destination Address</strong></label>
-    <div class="uk-form-controls">
-       <select name="destAddress" class="uk-select">
-         {{#each locations as |location|}}
-        <option >{{locName}}</option>
-        {{/each}}
-      </select> 
-    </div>
-</div>
-<br>
-
-
-       <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">
-           <strong>Description & Relevant information:  </strong>
-           
-       </label>
-           <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like especial instructions" name="description"></textarea>
-       </div>
-       <hr>
-       <div class="form-actions">
-           <a href="/location" class="btn btn-link">Cancel and go back</a>
-           <input type="submit" value="Save" class="btn btn-primary">
-       </div>
-        </form>
-   </fieldset>
-   </div>
-
-
+{{!-- END of formulary modal --}}
 
 
 

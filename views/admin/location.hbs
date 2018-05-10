@@ -15,7 +15,7 @@
     {{#each locations as |location| }}
     <tbody>
         <tr>
-            <td>{{locName}}</td>
+            <td><a href="/location/{{_id}}">{{locName}}</a></td>
             <td>{{cName}}<br>{{cTelephone}}<br>{{cEmail}}</td>
             <td>{{address}}</td>
             <td>{{locType}}</td>
@@ -29,66 +29,73 @@
     {{/each}}
 </table>
 </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   <fieldset class="uk-fieldset">
-        <legend class="uk-legend">Add a New Location</legend>
-<form action="/location" method="POST">
-        <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">Location Name</label>
-           <div class="uk-form-controls">
-           <input class="uk-input"  name="locName" id="form-stacked-text" type="text" placeholder="Location's name of your preference">
-           </div>
-       </div>
+{{!-- End of Display Table  --}}
+<hr>
+<br>
 
-        <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">Address</label>
-           <div class="uk-form-controls">
-           <input class="uk-input"  name="address" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
-           </div>
-       </div>
+  
+  
+  
+  
+  
+  
+{{!-- Button to deploy modal --}}
+<a class="uk-button uk-button-primary" href="#modal-overflow" uk-toggle>New Location</a>
 
-       <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">Contact Information</label>
-           <div class="uk-form-controls">
-           <input class="uk-input" id="form-stacked-text" type="text" name="cName" placeholder="Contact's Name">
-           <input class="uk-input" id="form-stacked-text" type="email" name="cEmail" placeholder="Contact's Email">
-           <input class="uk-input" id="form-stacked-text" type="text" name="cTelephone" placeholder="Contact's Telephone">
-           </div>
+{{!-- Formulary modal to add new Location --}}
+<div id="modal-overflow" uk-modal>
+   <div class="uk-modal-dialog">
+       <button class="uk-modal-close-default" type="button" uk-close></button>
+       <div class="uk-modal-header">
+           <h2 class="uk-modal-title">Add Location Details</h2>
        </div>
-
-       <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">Type of Location</label>
-           <select class="uk-select" name="locType">
-               <option>Select...</option>
-               <option>Wholesaler Facilities</option>
-               <option>Pharmacy</option>
-               <option>3PL</option>
-               <option>Own Facilities</option>
-               <option>Government Facilities</option>
-               <option>Other</option>
-
-           </select>
+       <div class="uk-modal-body" uk-overflow-auto>
+           <form action="/location" method="POST">
+               <div class="uk-margin">
+                   <label class="uk-form-label" for="form-stacked-text"><strong>Location Name</strong></label>
+                   <div class="uk-form-controls">
+                       <input class="uk-input"  name="locName" id="form-stacked-text" type="text" placeholder="Location's name of your preference">
+                   </div>
+               </div>
+               <div class="uk-margin">
+                   <label class="uk-form-label" for="form-stacked-text"><strong>Address</strong></label>
+                   <div class="uk-form-controls">
+                       <input class="uk-input"  name="address" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
+                   </div>
+               </div>
+               <div class="uk-margin">
+               <label class="uk-form-label" for="form-stacked-text"><strong>Contact Information</strong></label>
+                   <div class="uk-form-controls">
+                   <input class="uk-input" id="form-stacked-text" type="text" name="cName" placeholder="Contact's Name">
+                   <input class="uk-input" id="form-stacked-text" type="email" name="cEmail" placeholder="Contact's Email">
+                   <input class="uk-input" id="form-stacked-text" type="text" name="cTelephone" placeholder="Contact's Telephone">
+                   </div>
+               </div>
+               <div class="uk-margin">
+                   <label class="uk-form-label" for="form-stacked-text"><strong>Type of Location</strong></label>
+                   <select class="uk-select" name="locType">
+                       <option>Select...</option>
+                       <option>Wholesaler Facilities</option>
+                       <option>Pharmacy</option>
+                       <option>3PL</option>
+                       <option>Own Facilities</option>
+                       <option>Government Facilities</option>
+                       <option>Other</option>
+                   </select>
+               </div>
+               <div class="uk-margin">
+                   <label class="uk-form-label" for="form-stacked-text"><strong>Description & Relevant information:</strong></label>
+                   <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like attention hours,"></textarea>
+               </div>
+               <div class="uk-modal-footer uk-text-right">
+                   <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                   <input type="submit" value="Save" class="uk-button uk-button-primary">
+               </div>
+           </form>
        </div>
-
-       <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text">
-           Description & Relevant information:  
-           
-       </label>
-           <textarea class="uk-textarea" rows="2" name="description" placeholder="Description can include info like attention hours,"></textarea>
-       </div>
-       <hr>
-       <div class="form-actions">
-           <a href="/location" class="btn btn-link">Cancel and go back</a>
-           <input type="submit" value="Save" class="btn btn-primary">
-       </div>
-        </form>
-   </fieldset>
+   </div>
+</div>
+{{!-- END of formulary modal --}}
+  
+  
+  

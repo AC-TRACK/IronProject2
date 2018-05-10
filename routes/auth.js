@@ -52,7 +52,7 @@ router.get('/users/:id/update', (req, res, next)=>{
 	User.findById(req.params.id)
 	.then(user=>{
 		console.log(user);
-		res.render('update', {user});
+		res.render('updates/update', {user});
 	})
 	.catch((e)=>next(e));
 

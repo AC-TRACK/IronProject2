@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const orderSchema = new Schema({
+    user: String,
     typeOfOrder: {
       type: String,
       enum: ['New Requirement', 'Shipment To:', 'Pick Up'],
