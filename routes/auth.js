@@ -20,7 +20,7 @@ const nodemailer = require('nodemailer');
 
 function isAuthenticated(req,res, next){
   if(req.isAuthenticated()){
-      return res.redirect('/profile')
+      return res.redirect('/profile');
   }
   return next();
 };
@@ -44,12 +44,47 @@ res.render('auth/login', {error: req.body.error});
 router.post('/login',
  passport.authenticate('local'),
 (req, res)=>{
-  console.log(...req.body);
-  if (req.body.role === 'CLIENT') {
-   return res.redirect('/navbar');
-  } 
- return res.redirect('/profile');
+  console.log(req.body);
+ res.redirect('/profile');
 });
+//			users update & delete
+router.get('/users/:id/update', (req, res, next)=>{
+	User.findById(req.params.id)
+	.then(user=>{
+		console.log(user);
+		res.render('update', {user});
+	})
+	.catch((e)=>next(e));
+
+});
+
+router.get('/users/:id/delete', (req, res, next)=>{
+User.findByIdAndRemove(req.params.id)
+.then(r =>{
+	res.redirect('/users');
+})
+.catch((e)=>next(e));
+});
+
+router.get('/users/:id', (req, res, next ) => {
+	User.findById(req.params.id)
+	.then(user=>{
+		res.send(JSON.stringify(user));
+	})
+	.catch((e)=>res.status(500).json(e));
+});
+
+
+
+router.post('/users/:id/update', (req, res, next)=>{
+console.log(req.params);
+User.findByIdAndUpdate(req.params.id, req.body)
+.then(r =>{
+	res.redirect('/users');
+})
+.catch((e)=>console.log(e));
+});
+
 
 router.get('/users', async (req, res, next) => {
 
@@ -58,18 +93,19 @@ router.get('/users', async (req, res, next) => {
   res.render('admin/users', {users});
   
 });
+
 router.post('/users', (req, res)=>{
-  if (req.body.password !== req.body.password2) {
-    return res.render("auth/users", { info: "Las contraseñas no coinciden :(" })
+  if (req.body.password !== req.body.password1) {
+    return res.render("admin/users", { info: "Las contraseñas no coinciden :(" })
   }
-  User.register(new User({ email: req.body.email }), req.body.password, function(err, account) {
+  User.register(new User(req.body), req.body.password, function(err, account) {
     if (err) {
-        return res.render("auth/signup", { info: "Ese correo ya está registrado :(" });
+        return res.render("admin/users", { info: "Ese correo ya está registrado :(" });
     }
     const authenticate = User.authenticate();
-
+		
     let message = {
-        from: process.env.EMAIL_USER,
+        from: process.env.USER_EMAIL,
         to: req.body.email,
         subject: "Tu código de confirmación",
         html: `<html>
@@ -81,7 +117,7 @@ router.post('/users', (req, res)=>{
 
 			<div class="email--inner-container">
 				<p>Your account in CCA-TRACK has been created, please confirm your e-mail</p>
-				<a href="#" class="cta">Click here</a>
+				<a href="http://localhost:3000" class="cta">Click here</a>
 			</div>
 
 		</div>
@@ -162,10 +198,10 @@ p {
            </html>`
     }
     transporter.sendMail(message);
-    return res.redirect('/verification');
-    authenticate(req.body.email, req.body.password, function(err, result) {
+    return res.redirect('/users');
+    ticateauthen(req.body.email, req.body.password, function(err, result) {
         if (err) return res.send(err);
-        return res.redirect('/');
+        return res.send('Oooops, something went wrong!');
     });
 });
 }); 

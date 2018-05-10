@@ -13,16 +13,16 @@
     {{#each users as |user| }}
     <tbody>
         <tr>
-            <a href="#">
-            <td>{{name}} {{lastName}}</td>
+            
+            <td><a href="users/{{_id}}">{{name}} {{lastName}}</a></td>
             <td>{{address}}</td>
             <td>{{email}}</td>
             <td>{{role}}</td>
             <td>
-            <a href="users/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
-            <a href="/users"><input type="submit" id="delete-user" uk-icon="icon: trash"></a>
+            <a href="users/{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
+            <a href="users/{{_id}}/delete"><input onclick= delete({{_id}}) type="submit" id="delete-user" uk-icon="icon: trash"></a>
             </td>
-            </a>
+            
         </tr>
     </tbody>
     {{/each}}
@@ -32,18 +32,12 @@
 
 
 
-<a class="uk-button uk-button-default" href="#modal-overflow" uk-toggle>Open</a>
 
-<div id="modal-overflow" uk-modal>
-    <div class="uk-modal-dialog">
 
-        <button class="uk-modal-close-default" type="button" uk-close></button>
 
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Headline</h2>
-        </div>
 
-        <div class="uk-modal-body" uk-overflow-auto>
+
+
 
 <div class="uk-position-large uk-position-center">
 <h1 style="color:blue" class="uk-heading-bullet">Users</h1>
@@ -57,6 +51,10 @@
            <input class="uk-input" name="lastName" type="text" placeholder="Last Name">
 
        </div>
+        <div class="uk-margin">
+          <label class="uk-form-label">Address</label>
+          <input class="uk-input" type="text" name="address" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
+        </div>
         <div class="uk-margin">
           <label class="uk-form-label">E-mail</label>
           <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail">
@@ -89,72 +87,4 @@
    </fieldset>
 </form>
 </div> 
-
-            
-        </div>
-
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!-- <div class="uk-position-large uk-position-center">
-<h1 style="color:blue" class="uk-heading-bullet">Users</h1>
-   <fieldset class="uk-fieldset">
-<form action="/users" method="post">
-       <legend class="uk-legend">Create a new User</legend>
-
-       <div class="uk-margin">
-           <label class="uk-form-label">Full Name</label>
-           <input class="uk-input" name="name" type="text" placeholder="First Name">
-           <input class="uk-input" name="lastName" type="text" placeholder="Last Name">
-
-       </div>
-        <div class="uk-margin">
-          <label class="uk-form-label">E-mail</label>
-          <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail">
-        </div>
-           <br>
-       <div class="uk-margin">
-           <label class="uk-form-label">Set Password</label>
-           <input class="uk-input" name="password" type="password" placeholder="Type New Password">
-           <input class="uk-input" name="password1" type="password" placeholder="Confirm Password">
-       </div>
-           <br>
-       <div class="uk-margin">
-       <label class="uk-form-label">Role</label>
-           <select class="uk-select" name="role">
-               <option>Select...</option>
-               <option>ADMIN</option>
-               <option>CLIENT</option>
-               <option>OPS</option>
-           </select>
-       </div>
-       <br>
-       <div class="form-actions">
-           <a href="/users" class="btn btn-link">Cancel and go back</a>
-           <br><br>
-           <input type="submit" value="Save" class="btn btn-primary">
-       </div>
-    </form>
-
-
-   </fieldset>
-</form>
-</div>  --}}
+{{!--  --}}

@@ -8,13 +8,25 @@
   <body>
     <nav>
       <div class="uk-iconnav">
-        <h3>CCA Track</h3>
+        <div>
+          <h3>CCA Track</h3>
+        </div>
+        <div>
         <a href="/profile" uk-icon="icon: home">
         HOME
         </a>
+        </div>
+        <div class="nameTag">
+          <img class="proPic" src="https://nush.sg/user/108" alt="Default Profile Picture">
+          <p>{{user.name}}</p>
+        </div>
       </div>
     </nav>
     {{{body}}}
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
     <script src='/javascripts/script.js'></script>

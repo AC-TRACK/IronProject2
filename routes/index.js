@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
   res.render('auth/login');
 });
 
-router.get('/profile', (req, res, next)=>{
+router.get('/users/:id', (req, res, next)=>{
   res.render('admin/profile');
 });
 

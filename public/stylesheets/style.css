@@ -143,4 +143,11 @@ a {
   display: flex;
   justify-content: flex-end; }
 
+.nameTag {
+  border: 1px solid black; }
+
+.proPic {
+  width: 20px;
+  height: 20px; }
+
 /*# sourceMappingURL=style.css.map */

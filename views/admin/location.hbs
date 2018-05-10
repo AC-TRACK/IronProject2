@@ -20,7 +20,10 @@
             <td>{{address}}</td>
             <td>{{locType}}</td>
             <td>{{description}}</td>
-            <td><button uk-icon="icon: pencil"></button><button uk-icon="icon: trash"></button></td>
+            <td>
+                <a href="location/{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
+            <a href="location/{{_id}}/delete"><input type="submit" id="delete-user" uk-icon="icon: trash"></a>
+            </td>
         </tr>
     </tbody>
     {{/each}}
@@ -35,20 +38,20 @@
   
   
   
-   {{!-- <fieldset class="uk-fieldset">
+   <fieldset class="uk-fieldset">
         <legend class="uk-legend">Add a New Location</legend>
 <form action="/location" method="POST">
         <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text" name="locName">Location Name</label>
+       <label class="uk-form-label" for="form-stacked-text">Location Name</label>
            <div class="uk-form-controls">
-           <input class="uk-input" id="form-stacked-text" type="text" placeholder="Location's name of your preference">
+           <input class="uk-input"  name="locName" id="form-stacked-text" type="text" placeholder="Location's name of your preference">
            </div>
        </div>
 
         <div class="uk-margin">
-       <label class="uk-form-label" for="form-stacked-text" name="address">Address</label>
+       <label class="uk-form-label" for="form-stacked-text">Address</label>
            <div class="uk-form-controls">
-           <input class="uk-input" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
+           <input class="uk-input"  name="address" id="form-stacked-text" type="text" placeholder="Street name & number, Borough, City, State, County, ZIP Code">
            </div>
        </div>
 
@@ -88,4 +91,4 @@
            <input type="submit" value="Save" class="btn btn-primary">
        </div>
         </form>
-   </fieldset> --}}
+   </fieldset>

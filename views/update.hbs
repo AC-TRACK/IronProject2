@@ -2,18 +2,18 @@
   <div class="uk-position-large uk-position-center">
 <h1 style="color:blue" class="uk-heading-bullet">Users</h1>
    <fieldset class="uk-fieldset">
-<form action="/users" method="post">
-       <legend class="uk-legend">Create a new User</legend>
+<form action="/users/{{user._id}}/update" method="post">
+       <legend class="uk-legend">Update User</legend>
 
        <div class="uk-margin">
            <label class="uk-form-label">Full Name</label>
-           <input class="uk-input" name="name" type="text" placeholder="First Name">
-           <input class="uk-input" name="lastName" type="text" placeholder="Last Name">
+           <input class="uk-input" name="name" type="text" placeholder="First Name" value="{{user.name}}" >
+           <input class="uk-input" name="lastName" type="text" placeholder="Last Name" value={{user.lastName}}>
 
        </div>
         <div class="uk-margin">
           <label class="uk-form-label">E-mail</label>
-          <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail">
+          <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail" value="{{user.email}}">
         </div>
            <br>
        <div class="uk-margin">
@@ -24,7 +24,7 @@
            <br>
        <div class="uk-margin">
        <label class="uk-form-label">Role</label>
-           <select class="uk-select" name="role">
+           <select class="uk-select" name="role" value="{{user.role}}">
                <option>Select...</option>
                <option>ADMIN</option>
                <option>CLIENT</option>

@@ -9,7 +9,7 @@ const locationSchema = new Schema({
   cTelephone: String,
   locType: {
     type: String,
-    enum: ['Wholesaler Facilities', 'Pharmacy', '3PL', 'Own Facilities', 'Government Facilities', 'Other'], 
+    enum: ['Wholesaler Facilities', 'Pharmacy', '3PL', 'Own Facilities', 'Government Facilities', 'Other'] 
   }, 
   description: String,
 }, {
@@ -20,3 +20,7 @@ const locationSchema = new Schema({
 });
 
 module.exports = mongoose.model('Location', locationSchema);
+
+
+
+//Location.find({}, {locName: 1}, {_id: 0})

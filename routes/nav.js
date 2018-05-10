@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const Location = require('../models/Location')
+const Location = require('../models/Location');
+const Order = require('../models/Order');
+
+router.get('/profile', (req, res, next)=>{
+res.render('admin/profile');
+});
+
 
 router.get('/navbar', (req, res)=>{
   res.render('navbar');
@@ -8,10 +14,12 @@ router.get('/navbar', (req, res)=>{
 
 //  location route (GET & POST)
 router.get('/location', async (req, res, next)=>{
+  
   const locations = await Location.find();
-
   res.render('admin/location', {locations});
 });
+
+
 router.post('/location', (req, res, next)=>{
   Location.create(req.body)
   .then((location)=>{
@@ -34,8 +42,10 @@ router.post('/shippers', (req, res, next)=>{
   .catch((e)=>next(e));
 });
 //  orders route (GET & POST)
-router.get('/orders', (req, res, next)=>{
-res.render('admin/orders')
+router.get('/orders', async (req, res, next)=>{
+  const locations = await Location.find();
+  const orders = await Order.find();
+  res.render('admin/orders', {locations,orders});
 });
 
 router.post('/orders', (req, res, next)=>{
