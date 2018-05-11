@@ -6,7 +6,6 @@
             <th class="uk-table-expand">Type Of Order</th>
             <th class="uk-width-small">Type of Shipper</th>
             <th class="uk-width-small uk-flex-center" >QTTY</th>
-            <th class="uk-table-expand">User asigned</th>
             <th class="uk-width-medium">Initial Address</th>
             <th class="uk-width-medium">Destination Address</th>
             <th  class="uk-table-expand">Description</th>
@@ -14,7 +13,7 @@
         </div>
 </thead>
 
-    {{#each bothOrders as |order| }}
+    {{#each uorders as |order| }}
     <tbody>
         <tr>
             <td>{{typeOfOrder}}</td>
@@ -54,7 +53,7 @@
             <h2 class="uk-modal-title">Add Order Details</h2>
         </div>
         <div class="uk-modal-body" uk-overflow-auto>
-            <form action="/orders" method="POST">
+            <form action="/profile/orders" method="POST">
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text" name="locName"><strong>Type of Order</strong></label>
                     <div class="uk-form-controls">
@@ -100,17 +99,6 @@
                     <button id="addRow" class="uk-button uk-button-default" type="button">+</button>
                     <button id="deleteRow" class="uk-button uk-button-default" type="button">-</button>
                 </div>
-                <div class="uk-margin">
-                   <label class="uk-form-label" for="form-stacked-text" name="users"><strong>Assigned to user:</strong> <small>(Leave empty if Requirement Order)</small> </label>
-                   <div class="uk-form-controls">
-                       <select name="user" class="uk-select" >
-                             <option>Select User</option>
-                         {{#each users as |user|}}      
-                               <option>{{name}} {{lastName}}</option>
-                           {{/each}}
-                       </select>  
-                   </div>
-               </div>
 
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text" name="address"><strong>Initial Address</strong> <small>(Leave empty if Requirement Order)</small> </label>

@@ -19,11 +19,15 @@ const nodemailer = require('nodemailer');
 // });
 
 function isAuthenticated(req,res, next){
+
   if(req.isAuthenticated()){
-      return res.redirect('/profile');
+			//next();
+  return res.redirect('/admin');
   }
-  return next();
+ return next();
 };
+
+ // res.redirect('/login');
 
 function isNotAuth(req,res,next){
   if(req.isAuthenticated()){
@@ -31,6 +35,10 @@ function isNotAuth(req,res,next){
   }
   return res.redirect('/login');
 }
+
+
+
+
 
 router.get('/logout', (req, res, next)=>{
   req.logout();
@@ -44,8 +52,10 @@ res.render('auth/login', {error: req.body.error});
 router.post('/login',
  passport.authenticate('local'),
 (req, res)=>{
-  console.log(req.body);
- res.redirect('/profile');
+	if (req.user.role !== 'ADMIN'){
+		return res.redirect('/profile')
+	}
+ res.redirect('/admin');
 });
 //			users update & delete
 router.get('/users/:id/update', (req, res, next)=>{
@@ -88,6 +98,11 @@ User.findByIdAndUpdate(req.params.id, req.body)
 
 router.get('/users', async (req, res, next) => {
 
+	// if (req.user.role !== "ADMIN"){
+	// 	res.send("epale epale perro");
+	// 	return;
+	// }
+
   const users = await User.find();
 
   res.render('admin/users', {users});
@@ -117,7 +132,7 @@ router.post('/users', (req, res)=>{
 
 			<div class="email--inner-container">
 				<p>Your account in CCA-TRACK has been created, please confirm your e-mail</p>
-				<a href="http://localhost:3000" class="cta">Click here</a>
+				<a href="http://localhost:3000/" class="cta">Click here</a>
 			</div>
 
 		</div>
@@ -199,7 +214,7 @@ p {
     }
     transporter.sendMail(message);
     return res.redirect('/users');
-    ticateauthen(req.body.email, req.body.password, function(err, result) {
+    nticautheate(req.body.email, req.body.password, function(err, result) {
         if (err) return res.send(err);
         return res.send('Oooops, something went wrong!');
     });

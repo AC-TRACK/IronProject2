@@ -3,14 +3,17 @@ const router = express.Router();
 const Location = require('../models/Location');
 const Order = require('../models/Order');
 const User = require('../models/User');
+const Shipper = require('../models/Shipper');
+const Ulocation = require('../models/Ulocation');
+const Uorders = require('../models/Uorder');
 
-router.get('/profile', (req, res, next)=>{
+router.get('/admin', (req, res, next)=>{
 res.render('admin/profile');
 });
 
-router.get('/navbar', (req, res)=>{
-  res.render('navbar');
-});
+// router.get('/navbar', (req, res)=>{
+//   res.render('navbar');
+// });
 
 //  location route (GET & POST)
 router.post('/location/:id/update', (req, res, next)=>{
@@ -49,7 +52,10 @@ Location.findById(req.params.id)
 
 router.get('/location', async (req, res, next)=>{
 const locations = await Location.find();
-res.render('admin/location', {locations});
+const ulocations = await Ulocation.find();
+const both = locations.concat(ulocations);
+console.log(ulocations);
+res.render('admin/location', {both});
 });
 
 
@@ -114,15 +120,53 @@ router.get('/orders', async (req, res, next)=>{
   const locations = await Location.find();
   const orders = await Order.find();
   const users = await User.find();
-  res.render('admin/orders', {locations,orders, users});
+  const uorders = await Uorders.find();
+  const bothOrders = orders.concat(uorders);
+  res.render('admin/orders', {locations, users, bothOrders});
 });
 
 router.post('/orders', (req, res, next)=>{
   Order.create(req.body)
   .then((order)=>{
+    console.log(order);
+
+    let results= [];
+    let obj={};
+   
+   order.typeOfShipper.map((item,i)=>{
+     obj={
+       type:item,
+       quantity:order.shippersQtty[i]
+     }
+     results.push(obj)
+   })
+
+  results.map(obj=>{
+
+     for(let c=0; c <= obj.quantity; c++){   
+       Shipper.create({typeOfShipper: order._id})
+     }
+
+   })
     res.redirect('/orders');
   })
  .catch((e)=>next(e));
-});
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

@@ -27,7 +27,7 @@ const app = express();
 
 app.use(session({
   secret: 'ironhackproject',
-  resave: false,
+  resave: true,
   saveUnitialized: true,
 }));
 
@@ -59,8 +59,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const nav = require('./routes/nav');
-app.use('/', nav);
+const admin = require('./routes/admin');
+const profile = require('./routes/profile');
+app.use('/', profile);
+app.use('/', admin);
 app.use('/', auth );
 app.use('/', index);
 

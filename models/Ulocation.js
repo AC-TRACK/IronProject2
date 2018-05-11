@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const locationSchema = new Schema({
+const ulocationSchema = new Schema({
   locName: String,
   address: String,
   cName: String,
@@ -23,8 +23,4 @@ const locationSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Location', locationSchema);
-
-
-
-//Location.find({}, {locName: 1}, {_id: 0})
+module.exports = mongoose.model('Ulocation', ulocationSchema);

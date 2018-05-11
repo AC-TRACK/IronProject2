@@ -12,7 +12,7 @@
         </div>
 </thead>
 
-    {{#each both as |location| }}
+    {{#each ulocations as |ulocation| }}
     <tbody>
         <tr>
             <td><a href="/location/{{_id}}">{{locName}}</a></td>
@@ -50,7 +50,7 @@
            <h2 class="uk-modal-title">Add Location Details</h2>
        </div>
        <div class="uk-modal-body" uk-overflow-auto>
-           <form action="/location" method="POST">
+           <form action="/profile/locations" method="POST">
                <div class="uk-margin">
                    <label class="uk-form-label" for="form-stacked-text"><strong>Location Name</strong></label>
                    <div class="uk-form-controls">
@@ -96,6 +96,3 @@
    </div>
 </div>
 {{!-- END of formulary modal --}}
-  
-  
-  

@@ -6,15 +6,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css" />
   </head>
   <body>
-   <nav class="uk-navbar-container uk-margin" uk-navbar >
-     <div class="uk-navbar-left">
-       <a style="width:500px" class="uk-navbar-item uk-logo" href="x"><img src="https://lh3.googleusercontent.com/mb6YGUspcbJSHxFYmizdzUeaZqnXL7r8j5W2zQFimjJEmDSY0hugKfN6Q_R91buIOgxKpSa_El_8EHJx-Aqmj1NmAdyOYDOxPlCZ1Mzz0qEUJA2hkpZBZVVdFrz90N1vzyCj0zGC5jbfKdtdNe9cSGN5sURR_CgmR8gBFZsq1ROCEGh9US2UgZfeSEmswpQTA_jqZclaIOsOl5tdDueCP9t2kRQsSw6tXQ3PXalS1iFrFW6e7clB4QuTEu1Nqg_zT85yVJFcz4CrGIF_oeoHd52PMcb-FfuQo4kFLj_ZB-QBjQ2jqaRSEVW0ibW75iMsVrra1uAPglF_uruJ3jyEsAosCxUkvQCT4Mvme6j6GehSVFi0-eClRcpUXC-uuUi8sWpYE5gkdg8KLKlf5Q4yqt6LEGf6RlaHcSnq7jjmpTLxIF6c0goVU09OQ4VDuw-YRQt3QeIQs82E6fhIH5eXzXGRwngVnPjWr92Q3-tXyxWwYb9iLXBuGkXA23mZ9sNvZOtJaKzN8WJMKMI619Cu74EaCs4XfR8FLRxPPcrqlmEgTr38XnT7syHLIZyRArL7R5A2XhorL0xtW8AW-Z7dR64EEJN_zGaCq92qEgdJ=w1698-h254-no" alt="foto"></a>
-     </div>
-   </nav>   
- 
-        {{!-- <a href="/profile" uk-icon="icon: home">
-        HOME
-        </a> --}}
+    <nav class="uk-navbar-container uk-margin" uk-navbar style="background-color:white;" >
+      <div  style="padding-left:70px; padding-top:20px;" class="uk-navbar-left">
+        <img style="width:500px; height:80px;" class="uk-navbar-item uk-logo" src="https://files.slack.com/files-pri/T02CQ4EN4-FAN20NAM8/ccatracklogo.png" />
+        <ul  style="padding-left:190px;" class="uk-navbar-nav">
+            <li class="uk-active"><a href="/ecoflex">Eco Flex</a></li>
+            <li class="uk-active"><a href="/profile">Main</a></li>
+            <li class="uk-active"><a href="/location">locations</a></li>
+            <li class="uk-active"><a href="/shippers">Shippers</a></li>
+            <li class="uk-active"><a href="/orders">Orders</a></li>
+            <li class="uk-active"><a href="/users">Users</a></li>
+        </ul>
+      </div>
+    </nav>
+    
     {{{body}}}
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -23,5 +28,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
     <script src='/javascripts/script.js'></script>
+    <div class="footer">
+      <div class="uk-section uk-section-secondary uk-light">
+    <div class="uk-container">
+        <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+            <div>
+                <h6><strong>SIGN UP FOR THE NEWSLETTER</strong></h6>
+                <div class="uk-margin">
+                  <input class="uk-input uk-form-width-medium" type="text" placeholder="Email address">
+                </div>
+            </div>
+            <div>
+                <h6><strong>FOLLOW US</strong></h6>
+                <ul style="list-style-type:none; display:flex; justify-content:space-between">
+                  <span><a href="" uk-icon="icon: google-plus"></a></span>
+                  <span><a href="" uk-icon="icon: linkedin"></a></span>
+                  <span><a href="" uk-icon="icon: twitter"></a></span>
+                </ul>
+                <br>
+                <h6><strong>CONTACT US</strong></h6>
+                <br>
+                <p>FERNANDA SOSA & FRANCO VARGAS TEAM:</p>
+                <p>INFO@CCTRACK.COM.MX</p>
+            </div>
+            <div>
+                <ul style="list-style-type:none">
+                  <li class="uk-active"><a href="/ecoflex">Eco Flex</a></li>
+                  <li class="uk-active"><a href="#">Main</a></li>
+                  <li class="uk-active"><a href="/location">locations</a></li>
+                  <li class="uk-active"><a href="/shippers">Shippers</a></li>
+                  <li class="uk-active"><a href="/orders">Orders</a></li>
+                  <li class="uk-active"><a href="/users">Users</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
   </body>
 </html>
+
+
+
+
+
+

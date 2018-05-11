@@ -143,11 +143,17 @@ a {
   display: flex;
   justify-content: flex-end; }
 
-.nameTag {
-  border: 1px solid black; }
+.footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 130px; }
 
-.proPic {
-  width: 20px;
-  height: 20px; }
+#cctImg {
+  width: 10%;
+  height: 10%; }
 
 /*# sourceMappingURL=style.css.map */

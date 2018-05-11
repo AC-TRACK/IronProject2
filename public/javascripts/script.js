@@ -13,16 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     .then((data) => console.log(data));
 // });
 
-function delete (id){
-  fetch(`/users/${id}/delete`)
-  .then(res=> res.redirect('/users'))
-  .then(data=> console.log(data));
-}
 
-function reload(){
-  delete(`${id}`);
-  location.reload('/users');
-}
   
 
 

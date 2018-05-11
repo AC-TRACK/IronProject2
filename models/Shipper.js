@@ -2,36 +2,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const shipperSchema = new Schema({
-
+  typeOfShipper: {
+    type: Schema.Types.ObjectId,
+    ref: 'Order'
+  },
+  files: [String],
+  currentLocation: {
+    type: Schema.Types.ObjectId,
+    ref: 'Location',
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'Order',
+  },
 }, {
-})
-
-
-
-
-// const shipperSchema = new Schema({
-//   shipperName: [{
-//     type: Schema.Types.ObjectId,
-//     ref: 'Order',
-//   }],
-//    status: {
-//      type: String,
-//      enum: ['InPlace', 'InTransit', 'InDestination', 'OnReturn', 'OnInspection'],
-//    },
-//    initialLocation: [{
-//      type: Schema.Types.ObjectId,
-//       ref: 'Order',
-//    }],
-//    currentLocation: String,
-//    destLocation: [{
-//     type: Schema.Types.ObjectId,
-//     ref:'Order',
-//   }],
-// }, {
-//    timestamps: {
-//        createdAt: 'created_At',
-//        updatedAt: 'updated_At',
-//    },
-// });
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  },
+});
 
 module.exports = mongoose.model('Shipper', shipperSchema);
