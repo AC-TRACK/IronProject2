@@ -1,6 +1,6 @@
-
+    <div style="height:700px">
   <div class="uk-position-large uk-position-center">
-<h1 style="color:blue" class="uk-heading-bullet">Users</h1>
+<h1 style="color:blue" class="uk-heading-bullet">Edit Users</h1>
    <fieldset class="uk-fieldset">
 <form action="/users/{{user._id}}/update" method="post">
        <legend class="uk-legend">Update User</legend>
@@ -16,12 +16,11 @@
           <input class="uk-input" type="email" name="email" placeholder="Enter your e-mail" value="{{user.email}}">
         </div>
            <br>
-       <div class="uk-margin">
-           <label class="uk-form-label">Set Password</label>
-           <input class="uk-input" name="password" type="password" placeholder="Type New Password">
-           <input class="uk-input" name="password1" type="password" placeholder="Confirm Password">
-       </div>
-           <br>
+        <div class="uk-margin">
+          <label class="uk-form-label">Address</label>
+          <input class="uk-input" type="text" name="address" placeholder="Enter your address" value="{{user.address}}">
+        </div>
+            <br>
        <div class="uk-margin">
        <label class="uk-form-label">Role</label>
            <select class="uk-select" name="role" value="{{user.role}}">
@@ -43,4 +42,5 @@
    </fieldset>
 </form>
 </div> 
+</div>
 

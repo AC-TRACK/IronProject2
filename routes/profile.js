@@ -4,6 +4,10 @@ const Order = require('../models/Order');
 const Ulocation = require('../models/Ulocation');
 const Uorder = require('../models/Uorder');
 const User = require('../models/User');
+const Shipper = require('../models/Shipper');
+
+
+
 //  PROFILE LOCATIONS ROUTES
 router.get('/profile/locations', async (req, res, next)=>{
   const ulocations = await Ulocation.find(); 
@@ -35,8 +39,9 @@ router.post('/profile/orders', (req, res, next)=>{
 
 //  PROFILE SHIPPERS ROUTES
 router.get('/profile/shippers', async (req, res, next)=>{
+  const shippers = await Shipper.find();
   const orders = await Order.find();
-  res.render('profile/user-shippers', {orders})
+  res.render('profile/user-shippers', {orders, shippers})
 });
 
 module.exports = router;

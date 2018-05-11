@@ -17,4 +17,8 @@ router.get('/ecoflex',(req,res,next)=>{
   res.render('admin/ecoflex');
  });
 
+router.get('/confirmpass', (req, res, next)=>{
+  res.render('confirm-pass');
+});
+
 module.exports = router;

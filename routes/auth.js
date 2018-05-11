@@ -132,7 +132,7 @@ router.post('/users', (req, res)=>{
 
 			<div class="email--inner-container">
 				<p>Your account in CCA-TRACK has been created, please confirm your e-mail</p>
-				<a href="http://localhost:3000/" class="cta">Click here</a>
+				<a href="https://hidden-atoll-98177.herokuapp.com/confirmpass" class="cta">Click here</a>
 			</div>
 
 		</div>

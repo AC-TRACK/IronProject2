@@ -24,8 +24,9 @@ a {
 	width: auto;
 	height: auto;
 	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	
 	background-size: cover;
-	z-index: 0;
+	z-index: 1;
 }
 
 .grad{
@@ -63,7 +64,7 @@ a {
 .login{
 	position: absolute;
 	top: calc(50% - 75px);
-	left: calc(50% - 50px);
+	left: calc(47% + 80px);
 	height: 150px;
 	width: 350px;
 	padding: 10px;
@@ -74,12 +75,12 @@ a {
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	border: 1.5px solid rgba(235, 230, 230, 0.925);
 	border-radius: 2px;
-	color: #fff;
+	color: rgb(255, 254, 254);
 	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
+	font-size: 18px;
+	font-weight: 1000;
 	padding: 4px;
 }
 
@@ -87,12 +88,12 @@ a {
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
+	border: 1.5px solid rgba(255,255,255,0.6);
 	border-radius: 2px;
 	color: #fff;
 	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
+	font-size: 18px;
+	font-weight: 1000;
 	padding: 4px;
 	margin-top: 10px;
 }
@@ -187,4 +188,40 @@ a {
 #cctImg{
 	width: 10%;
 	height: 10%;
+}
+.uk-section .uk-section-secondary .uk-light{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: stretch;
+
+}
+
+.bottomNavBar{
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+justify-content: flex-start;
+align-items: flex-start;
+align-content: stretch;
+}
+
+.BarraDeViews{
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-around;
+align-items: center;
+align-content: stretch;
+}
+.confirm{
+	margin: 200px 200px;
+}
+#pass-inp{
+	color: black;
+    border: 1.5px solid;
+		font-weight: bold;
+		margin-top: 15px;
 }

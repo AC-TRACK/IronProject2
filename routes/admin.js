@@ -69,7 +69,9 @@ router.post('/location', (req, res, next)=>{
 });
 //  shippers route (GET & POST)
 router.get('/shippers', (req, res, next)=>{
-res.render('admin/shippers');
+  const shippers = Shipper.find();
+  const orders =  Order.find();
+res.render('admin/shippers', {shippers, orders});
 });
 
 router.post('/shippers', (req, res, next)=>{

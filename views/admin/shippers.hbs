@@ -3,24 +3,25 @@
         <thead>
             <div class="uk-overflow-auto">
                 <tr>
-                    <th class="uk-table-expand">Owner</th>
+                    <th class="uk-width-medium">Shippers</th>
+                    <th class="uk-width-medium">ID Order</th>
                     <th class="uk-table-expand">Type of Shipper</th>
                     <th class="uk-table-expand">Current Location</th>
-                    <th class="uk-width-medium">ID Order</th>
+                    <th class="uk-width-medium">Owner</th>
                     <th class="uk-width-medium">Attached Files<a class="uk-button uk-button-primary" href="#modal-overflow" uk-toggle><span uk-icon="folder"></span></a></th>
                 </tr>
             </div>
         </thead>
-        {{#each shippers as |shipper| }}
+        {{#each orders as |order|}}
             <tbody>
                 <tr>
+                    <td>{{_id}}</td>
                     <td>{{user}}</td> {{!-- aqui se tiene que poder ver el name del usuario que creo la orden de este shipper --}}
                     <td>{{typeOfShipper}}</td>
                     <td>{{currentLocation}}</td>
-                    <td>{{order._id}}</td>
                     <td><span id="filesFolder" uk-icon="folder"></span></td>
                     <td>
-                        <a href="shipper{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
+                        <a href="shipper/{{_id}}/update"><input type="submit" id="edit-user" uk-icon="icon: pencil"/></a>
                         <a href="shipper/{{_id}}/delete"><input type="submit" id="delete-user" uk-icon="icon: trash"></a>
                     </td>
                 </tr>
@@ -54,6 +55,21 @@
     </div>
 </div>
 {{!-- END of formulary modal --}}
+
+
+<div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Shippers Id</h2>
+{{#each shippers as |shipper|}}
+<p>{{typeOfShipper}}</p>
+{{/each}}
+       
+    </div>
+</div>
+
+
+
+
 
 
 
